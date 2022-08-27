@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import OrderCard from './order-card.component';
-import OrcersColumn from './orcers-column.component';
 import OrderData from '../data/orders.json';
 import _ from 'lodash';
 
@@ -15,7 +14,6 @@ export const OrdersBoard = () => {
   });
 
   const filterData = () => {
-    console.log("Data", OrderData);
     let filteredNewOrders = _.filter( OrderData, function(o) { return o.status == "New";});
     let filteredReadyOrders = _.filter( OrderData, function(o) { return o.status == "Active";});
     let filteredActiveOrders = _.filter( OrderData, function(o) { return o.status == "Ready";});
@@ -26,14 +24,22 @@ export const OrdersBoard = () => {
     setCompletedOrders(filteredCompletedOrders)
   }
 
+  function displayNewOrders() {
+    return(
+      <div>
+        New Orders
+      </div>
+    )
+  }
+
   return (
-    (_.isEmpty(newOrders) || _.isEmpty(readyOrders) || _.isEmpty(activeOrders)  || _.isEmpty(completedOrders)) &&
+    (!_.isEmpty(newOrders) || !_.isEmpty(readyOrders) || !_.isEmpty(activeOrders)  || !_.isEmpty(completedOrders)) &&
     <div style={{ margin: 24 }}>
       <div class="container">
         <div class="row align-items-start">
           <div class="col">
             New
-            <OrderCard/>
+           {displayNewOrders()}
           </div>
           <div class="col">
             Ready
