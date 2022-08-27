@@ -11,7 +11,7 @@ export const OrdersBoard = () => {
 
   useEffect(() => {
     filterData()
-  });
+  }, []);
 
   const filterData = () => {
     let filteredNewOrders = _.filter( OrderData, function(o) { return o.status == "New";});
