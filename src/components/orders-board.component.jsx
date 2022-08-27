@@ -26,46 +26,46 @@ export const OrdersBoard = () => {
 
   function displayNewOrders() {
     return newOrders.map((order) => {
-      return (<OrderCard order={order}/>)
+      return (<OrderCard order={order} key ={order.id}/>)
     })
   }
 
   function displayReadyOrders() {
     return readyOrders.map((order) => {
-      return (<OrderCard order={order}/>)
+      return (<OrderCard order={order} key ={order.id}/>)
     })
   }
 
   function displayActiveOrders() {
     return activeOrders.map((order) => {
-      return (<OrderCard order={order}/>)
+      return (<OrderCard order={order} key ={order.id}/>)
     })
   }
 
   function displayCompletedOrders() {
     return completedOrders.map((order) => {
-      return (<OrderCard order={order}/>)
+      return (<OrderCard order={order} key ={order.id}/>)
     })
   }
 
   return (
     (!_.isEmpty(newOrders) || !_.isEmpty(readyOrders) || !_.isEmpty(activeOrders)  || !_.isEmpty(completedOrders)) &&
     <div style={{ margin: 24 }}>
-      <div class="container">
-        <div class="row align-items-start">
-          <div class="col">
+      <div className="container">
+        <div className="row align-items-start">
+          <div className="col">
             New
             {displayNewOrders()}
           </div>
-          <div class="col">
+          <div className="col">
             Ready
             {displayReadyOrders()}
           </div>
-          <div class="col">
+          <div className="col">
             Active
             {displayActiveOrders()}
           </div>
-          <div class="col">
+          <div className="col">
             Completed
             {displayCompletedOrders()}
           </div>

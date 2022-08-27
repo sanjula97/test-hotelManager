@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Button, CardBody, CardTitle, CardText } from 'reactstrap';
+import { Card, Button, CardBody, CardText } from 'reactstrap';
 
 function OrderCard({order}) {
   return (
@@ -24,7 +24,9 @@ function OrderCard({order}) {
               {order.items.length} items
             </CardText>
           </div>
-          <Button color="primary">primary</Button>
+          <div className=''>
+            <Button className='' color="primary">primary</Button>
+          </div>
         </CardBody>
       </Card>
     </div>
