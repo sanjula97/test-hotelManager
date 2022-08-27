@@ -25,7 +25,27 @@ export const OrdersBoard = () => {
   }
 
   function displayNewOrders() {
-    console.log("New data", newOrders);
+    return newOrders.map((order) => {
+      return (<OrderCard order={order}/>)
+    })
+  }
+
+  function displayReadyOrders() {
+    return readyOrders.map((order) => {
+      return (<OrderCard order={order}/>)
+    })
+  }
+
+  function displayActiveOrders() {
+    return activeOrders.map((order) => {
+      return (<OrderCard order={order}/>)
+    })
+  }
+
+  function displayCompletedOrders() {
+    return completedOrders.map((order) => {
+      return (<OrderCard order={order}/>)
+    })
   }
 
   return (
@@ -35,19 +55,19 @@ export const OrdersBoard = () => {
         <div class="row align-items-start">
           <div class="col">
             New
-            <OrderCard/>
+            {displayNewOrders()}
           </div>
           <div class="col">
             Ready
-            <OrderCard/>
+            {displayReadyOrders()}
           </div>
           <div class="col">
             Active
-            <OrderCard/>
+            {displayActiveOrders()}
           </div>
           <div class="col">
             Completed
-            <OrderCard/>
+            {displayCompletedOrders()}
           </div>
         </div>
       </div>
