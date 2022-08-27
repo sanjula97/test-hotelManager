@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, Button, CardBody, CardTitle, CardText } from 'reactstrap';
 
-function OrderCard() {
+function OrderCard({order}) {
   return (
     <div className=''>
       <Card
@@ -13,12 +13,17 @@ function OrderCard() {
         }}
       >
         <CardBody>
-          <CardTitle tag="h5">
-            Special Title Treatment
-          </CardTitle>
-          <CardText>
-            With supporting text below as a natural lead-in to additional content.
+          <CardText  className="text-muted">
+            Order {order.id}
           </CardText>
+          <CardText  className="">
+            {order.pricelist.name}
+          </CardText>
+          <div>
+            <CardText  className=" mb-0 text-muted">
+              {order.items.length} items
+            </CardText>
+          </div>
           <Button color="primary">primary</Button>
         </CardBody>
       </Card>
