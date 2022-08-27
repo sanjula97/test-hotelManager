@@ -25,11 +25,7 @@ export const OrdersBoard = () => {
   }
 
   function displayNewOrders() {
-    return(
-      <div>
-        New Orders
-      </div>
-    )
+    console.log("New data", newOrders);
   }
 
   return (
@@ -39,7 +35,7 @@ export const OrdersBoard = () => {
         <div class="row align-items-start">
           <div class="col">
             New
-           {displayNewOrders()}
+            <OrderCard/>
           </div>
           <div class="col">
             Ready
