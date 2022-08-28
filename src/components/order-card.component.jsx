@@ -1,23 +1,25 @@
 import React from 'react'
 import { Card, Button, CardBody, CardText } from 'reactstrap';
 
-function OrderCard({order}) {
-  console.log("Order", order);
-  let nextState = "Ready"
+function OrderCard({order, onChangeState}) {
+  let nextState = ""
+
   switch (order.status) {
     case "New":
       nextState = "Ready"
+      break
     case "Ready":
       nextState = "Active"
       break
     case "Active":
       nextState = "Completed"
       break
+    case "Completed":
+      nextState = "Archive"
+      break
     default:
       nextState = ""
   }
-
-  console.log("Order nextState", nextState);
 
   return (
     <div className=''>
@@ -45,7 +47,7 @@ function OrderCard({order}) {
           <CardText  className=" mb-0">
               {order.location} 
             </CardText>
-            <Button className='' color="primary">{nextState} {"->"} </Button>
+            <Button className='' color="primary" onClick={() => onChangeState(order)}>{nextState} {"->"} </Button>
           </div>
         </CardBody>
       </Card>
